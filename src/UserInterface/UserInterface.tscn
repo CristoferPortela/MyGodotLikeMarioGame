@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/QuitButton2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=6]
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.65173
+margin_top = -3.3035
+margin_right = 1.65173
+margin_bottom = -3.30347
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 243.506
+margin_top = 50.4067
+margin_right = 431.506
+margin_bottom = 81.4067
+text = "Pontuação: %s"
+align = 2
+
+[node name="lives" type="Label" parent="."]
+margin_left = 51.2039
+margin_top = 47.9005
+margin_right = 171.204
+margin_bottom = 78.9005
+text = "Vidas: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.6517
+margin_bottom = 1.65173
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 2 )]
+anchor_left = 0.497
+anchor_top = 0.349
+anchor_right = 0.497
+anchor_bottom = 0.349
+margin_left = -137.428
+margin_top = -75.5218
+margin_right = 143.572
+margin_bottom = 25.4782
+text = "Pause"
+align = 1
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -163.5
+margin_top = -81.0
+margin_right = 163.5
+margin_bottom = 81.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+margin_right = 327.0
+margin_bottom = 51.0
+
+[node name="ChangeSceneButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_top = 55.0
+margin_right = 327.0
+margin_bottom = 106.0
+text = "Tela Principal"
+next_scene = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_top = 110.0
+margin_right = 327.0
+margin_bottom = 162.0
